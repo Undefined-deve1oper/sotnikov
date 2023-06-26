@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ToastContainer } from "react-toastify";
 import { withRouter } from "./components/ui/HOC";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { lightTheme, darkTheme } from "./theme";
+import { darkTheme, lightTheme } from "./theme";
 
 const App: React.FC = () => {
-    const [isDarkMode] = useState(false);
+    const [isDarkMode] = useState(true);
 
     const theme = isDarkMode ? darkTheme : lightTheme;
-  
+
     return (
         <div>
             <ThemeProvider theme={theme}>
