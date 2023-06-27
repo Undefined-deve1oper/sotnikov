@@ -1,12 +1,8 @@
 import React from "react";
-import { Backdrop, BackdropProps, CircularProgress } from "@mui/material";
 
-
-const Loader: React.FC<BackdropProps> = (props) => {
+const Loader: React.FC = () => {
     return (
-        <Backdrop {...props}>
-            <CircularProgress color="secondary" />
-        </Backdrop>
+        <h1>Loading...</h1>
     );
 };
 
