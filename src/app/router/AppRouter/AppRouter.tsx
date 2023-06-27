@@ -6,7 +6,7 @@ import routes from "../index";
 const AppRouter: React.FC = () => {
     const elements = useRoutes(routes);
 
-    return <Suspense fallback={<Loader />}>{elements}</Suspense>;
+    return <Suspense fallback={<Loader size="62px" />}>{elements}</Suspense>;
 };
 
 export default AppRouter;

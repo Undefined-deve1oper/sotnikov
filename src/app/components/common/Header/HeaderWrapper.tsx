@@ -17,7 +17,7 @@ const HeaderWrapper: React.FC<childrenProps<ReactNode>> = ({ children }) => {
             }
         >
             <ScreenWidthWrapper>
-                <div className="py-4 px-4">
+                <div className="py-4">
                     <div className="relative flex items-center">{children}</div>
                 </div>
             </ScreenWidthWrapper>

@@ -1,3 +1,5 @@
-import PostCard from "./PostCard";
+import PostsFilter from "./PostsFilter";
+import PostsList from "./PostsList";
+import PostsHeader from "./PostsHeader";
 
-export { PostCard };
+export { PostsFilter, PostsList, PostsHeader };
