@@ -2,12 +2,12 @@ import React from "react";
 import { ToastContainer } from "react-toastify";
 import { withRouter } from "./components/ui/HOC";
 import AppRouter from "./router/AppRouter";
-import "./index.css";
+import "../index.css";
 
 const App: React.FC = () => {
 
     return (
-        <div>
+        <div className="">
             <AppRouter />
             <ToastContainer />
         </div>
