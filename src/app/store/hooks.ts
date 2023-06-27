@@ -13,9 +13,7 @@ export const useStateSelector: TypedUseSelectorHook<RootStore> = useSelector;
 
 export const useActionCreators = <
     Actions extends ActionCreatorsMapObject = ActionCreatorsMapObject
->(
-    actions: Actions
-): BoundActions<Actions> => {
+>(actions: Actions): BoundActions<Actions> => {
     const dispatch = useAppDispatch();
     return useMemo(() => bindActionCreators(actions, dispatch), []);
 };

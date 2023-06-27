@@ -5,11 +5,11 @@ const postsEndPoint = "posts";
 
 const postsService = {
     fetchAll: async () => {
-        const { data } = await httpService.get<IPost[]>(postsEndPoint);
+        const { data } = await httpService.get(postsEndPoint);
         return data;
     },
     getPostById: async (postId: string) => {
-        const { data } = await httpService.get<IPost>(postsEndPoint + "/" + postId);
+        const { data } = await httpService.get(postsEndPoint + "/" + postId);
         return data;
     },
     updatePost: async (payload: IPost) => {
