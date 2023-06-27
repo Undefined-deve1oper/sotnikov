@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
+    darkMode: "class",
     content: [
         "./src/**/*.{js,jsx,ts,tsx}",
     ],
@@ -29,7 +32,14 @@ module.exports = {
                 2: "2",
             },
         },
+        screens: {
+            xs: "425px",
+            ...defaultTheme.screens,
+        },
     },
-    plugins: [],
+    plugins: [
+        require("@tailwindcss/line-clamp"),
+        require("@tailwindcss/typography"),
+    ],
 };
 

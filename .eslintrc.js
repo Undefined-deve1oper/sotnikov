@@ -16,5 +16,6 @@ module.exports = {
         "object-curly-spacing": ["error", "always"],
         "operator-linebreak": "off",
         "space-in-parens": ["error", "never"],
+        "@typescript-eslint/no-var-requires": 0,
     },
 };
