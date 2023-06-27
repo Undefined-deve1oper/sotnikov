@@ -3,6 +3,7 @@ import StyledNavLink from "../StyledNavLink";
 import HeaderLinkList from "./HeaderLinkList";
 import HeaderLogo from "./HeaderLogo";
 import HeaderWrapper from "./HeaderWrapper";
+import BurgerMenu from "../BurgerMenu";
 
 const Header: React.FC = () => {
     return (
@@ -19,6 +20,7 @@ const Header: React.FC = () => {
                 <StyledNavLink to="/photos">Photos</StyledNavLink>
                 <StyledNavLink to="/tasks">Tasks</StyledNavLink>
             </HeaderLinkList>
+            <BurgerMenu />
         </HeaderWrapper>
     );
 };

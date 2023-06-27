@@ -11,7 +11,7 @@ const HeaderLogo: React.FC<ILogo> = ({ link, src, label }) => {
     return (
         <NavLink
             to={link}
-            className='flex mr-3 flex-none overflow-hidden md:w-auto text-slate-200 items-center'
+            className='flex mr-3 flex-none overflow-hidden md:w-auto text-slate-200 items-center mr-auto'
         >
             <img
                 src={src}
