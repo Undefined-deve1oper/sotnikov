@@ -31,8 +31,8 @@ const StyledNavLink: React.FC<Props> = ({
         <NavLink
             className={({ isActive }) =>
                 twMerge(
-                    className || "",
                     getLinkStyle(styleType),
+                    className || "",
                     styleType === "default" && isActive && "text-blue-300"
                 )
             }

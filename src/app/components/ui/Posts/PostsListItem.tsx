@@ -3,16 +3,17 @@ import { IPost } from "../../../types/interfaces";
 import { NavLink } from "react-router-dom";
 import DateDisplay from "../../common/DateDisplay";
 import { randomDate } from "../../../utils/displayDate";
+import { useSelector } from "react-redux";
+import { getUserById } from "../../../store";
 
 interface ItemProps {
     item: IPost;
 }
 
 const PostsListItem: React.FC<ItemProps> = ({ item }) => {
-    const {
-        userId, id: postId, title, body: content,
-    } = item;
+    const { userId, id: postId, title, body: content } = item;
     const publishDate = randomDate(new Date(2022, 0, 1), new Date());
+    const author = useSelector(getUserById(userId));
 
     return (
         <article className="relative group">
@@ -31,7 +32,8 @@ const PostsListItem: React.FC<ItemProps> = ({ item }) => {
                 ></circle>
             </svg>
             <div className="relative">
-                <h3 className="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-200 pt-8 lg:pt-0">
+                <p className="text-base font-light pt-8 pb-2 lg:pt-0">posted by <b>{author?.username}</b></p>
+                <h3 className="text-xl sm:text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-200 pt-0">
                     {title}
                 </h3>
                 <div className="mt-2 mb-4 prose prose-slate prose-a:relative prose-a:z-10 dark:prose-dark line-clamp-2">

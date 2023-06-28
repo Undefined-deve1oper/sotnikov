@@ -1,9 +1,9 @@
 import React from "react";
+import BurgerMenu from "../BurgerMenu";
 import StyledNavLink from "../StyledNavLink";
 import HeaderLinkList from "./HeaderLinkList";
 import HeaderLogo from "./HeaderLogo";
 import HeaderWrapper from "./HeaderWrapper";
-import BurgerMenu from "../BurgerMenu";
 
 const Header: React.FC = () => {
     return (
