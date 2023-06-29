@@ -1,18 +1,20 @@
 import { createSlice, Dispatch, PayloadAction } from "@reduxjs/toolkit";
 import postsService from "../../services/posts.service";
 import { IPost } from "../../types/interfaces";
-import { RootStore } from "../types";
+import { AppThunk, RootStore } from "../types";
 
 interface PostState {
     entities: IPost[];
     isLoading: boolean;
     error: string | null;
+    filteredEntities: IPost[];
 }
 
 const initialState: PostState = {
     entities: [],
+    filteredEntities: [],
     isLoading: true,
-    error: null
+    error: null,
 };
 
 const postsSlice = createSlice({
@@ -29,7 +31,11 @@ const postsSlice = createSlice({
         postsRequestFailed(state, action) {
             state.error = action.payload;
             state.isLoading = false;
-        }
+        },
+        filteredPostsReceived: (state, action: PayloadAction<IPost[]>) => {
+            state.filteredEntities = action.payload;
+            state.isLoading = false;
+        },
     }
 });
 
@@ -38,6 +44,7 @@ const {
     postsRequested,
     postsReceived,
     postsRequestFailed,
+    filteredPostsReceived
 } = actions;
 
 export const loadPostsList = () => async (dispatch: Dispatch) => {
@@ -50,6 +57,18 @@ export const loadPostsList = () => async (dispatch: Dispatch) => {
     }
 };
 
+export const loadFilteredPostsList =
+    (queryParams?: any): AppThunk =>
+        async (dispatch: Dispatch) => {
+            dispatch(postsRequested());
+            try {
+                const { content } = await postsService.fetchAll(queryParams);
+                dispatch(filteredPostsReceived(content || []));
+            } catch (error: any) {
+                dispatch(postsRequestFailed(error.message));
+            }
+        };
+
 
 export const getPostById = (postId: number) => (state: RootStore) => {
     return state.posts.entities
@@ -58,6 +77,8 @@ export const getPostById = (postId: number) => (state: RootStore) => {
 };
 
 export const getPostsList = () => (state: RootStore) => state.posts.entities;
+export const getFilteredPosts = () => (state: RootStore) =>
+    state.posts.filteredEntities;
 export const getPostsLoadingStatus = () => (state: RootStore) =>
     state.posts.isLoading;
 

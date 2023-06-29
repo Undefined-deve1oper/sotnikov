@@ -4,8 +4,10 @@ import httpService from "./http.service";
 const postsEndPoint = "posts";
 
 const postsService = {
-    fetchAll: async () => {
-        const { data } = await httpService.get(postsEndPoint);
+    fetchAll: async (params?: any) => {
+        const { data } = await httpService.get(postsEndPoint, {
+            params: { ...params }
+        });
         return data;
     },
     getPostById: async (postId: string) => {
