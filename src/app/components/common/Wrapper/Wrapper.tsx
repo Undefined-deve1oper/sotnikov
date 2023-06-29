@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
-import Header from "../Header";
 import { childrenProps } from "../../../types/interfaces";
 import Footer from "../Footer";
+import Header from "../Header";
 
 const Wrapper: React.FC<childrenProps<ReactNode>> = ({ children }) => {
     return (
